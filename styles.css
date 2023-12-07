@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(199, 175, 175);
+    font-family: Arial, sans-serif;
+}
+h1{
+    text-align: center;
+    color: #FFF;
+}
+.form-container {
+    background-color: #FFF;
+    margin: 0 auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 5px;
+}
+.form-container h2 {
+    text-align: center;
+    color: #900;
+}
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.form-container button {
+    background-color: #900;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.form-container button:hover {
+    opacity: 0.8;
+}
