@@ -64,6 +64,35 @@ LOCK TABLES `candidate` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `consultant`
+--
+
+DROP TABLE IF EXISTS `consultant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `consultant` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_candidate` int(11) NOT NULL,
+  `id_recruiters` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_recruiters` (`id_recruiters`),
+  KEY `id_candidate` (`id_candidate`),
+  CONSTRAINT `consultant_ibfk_1` FOREIGN KEY (`id_recruiters`) REFERENCES `recruiters` (`id`),
+  CONSTRAINT `consultant_ibfk_2` FOREIGN KEY (`id_candidate`) REFERENCES `candidate` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `consultant`
+--
+
+LOCK TABLES `consultant` WRITE;
+/*!40000 ALTER TABLE `consultant` DISABLE KEYS */;
+/*!40000 ALTER TABLE `consultant` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `job`
 --
 
@@ -100,7 +129,10 @@ CREATE TABLE `recruiters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `adress` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_post` int(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_post` (`id_post`),
+  CONSTRAINT `recruiters_ibfk_1` FOREIGN KEY (`id_post`) REFERENCES `job` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-09 21:42:59
+-- Dump completed on 2023-12-09 22:27:54
